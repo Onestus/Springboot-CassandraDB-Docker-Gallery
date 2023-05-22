@@ -17,7 +17,7 @@
 //      create table Painting(id int primary key, name text, year int, description text);
 //      create table Artist(id int primary key, name text, yearsofliving text, paintings text, biography text);
 //      create table Exhibition(id int primary key, name text, location text, dates text, thematics text);
-//
+//      create table Collection(id int primary key, name text, items text, authors text);
 //
 
 // 9. describe tables;
