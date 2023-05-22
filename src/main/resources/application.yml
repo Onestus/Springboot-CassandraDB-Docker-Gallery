@@ -1,0 +1,8 @@
+spring:
+  data:
+    cassandra:
+      port: 9042
+      contact-points: mycassandra
+      keyspace-name: mykeyspace
+      schema-action: create_if_not_exists
+      entity-base-package: com.example.cassandra.springbootcassandragallery.model

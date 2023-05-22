@@ -1,0 +1,22 @@
+
+// 1. docker compose up -d
+
+// 2. docker ps (to get our container's ID)
+
+// 3. docker exec -it 201954fc91b0 bash
+
+// 4. cqlsh
+
+// 5. describe keyspaces (to see there's no our keyspace)
+
+// 6. create keyspace mykeyspace with replication = {'class':'SimpleStrategy', 'replication_factor':3};
+
+// 7. use mykeyspace;
+
+// 8. create table Painting(id int primary key, name text);
+
+// 9. describe tables;
+
+--------------------
+
+// Сначала запускаем docker compose, затем Springboot...Application
