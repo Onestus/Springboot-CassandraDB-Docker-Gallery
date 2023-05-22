@@ -43,6 +43,8 @@ public class PaintingController {
                 () -> new ResourceNotFoundException("Painting not found for this id: " + paintingId)
         );
         painting.setName(paintingDetails.getName());
+        painting.setYear(paintingDetails.getYear());
+        painting.setDescription(paintingDetails.getDescription());
         final Painting updatedPainting = paintingRepository.save(painting);
         return ResponseEntity.ok(updatedPainting);
     }

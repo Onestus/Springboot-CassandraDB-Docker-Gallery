@@ -13,10 +13,17 @@
 
 // 7. use mykeyspace;
 
-// 8. create table Painting(id int primary key, name text);
+// 8. Create tables:
+//      create table Painting(id int primary key, name text, year int, description text);
+//      create table Artist(id int primary key, name text, yearsofliving text, paintings text, biography text);
+//
+//
+//
 
 // 9. describe tables;
 
 --------------------
+
+// Удалить таблицу - drop table <table_name>;
 
 // Сначала запускаем docker compose, затем Springboot...Application

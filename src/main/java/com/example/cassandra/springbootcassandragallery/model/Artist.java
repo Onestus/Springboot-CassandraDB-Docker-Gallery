@@ -11,11 +11,12 @@ import org.springframework.data.cassandra.core.mapping.Table;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Painting {
+public class Artist {
 
     @PrimaryKey
     private int id;
     private String name;
-    private int year;
-    private String description;
+    private String yearsofliving;
+    private String paintings;
+    private String biography;
 }
