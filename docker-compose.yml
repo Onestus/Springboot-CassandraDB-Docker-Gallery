@@ -1,7 +1,43 @@
-version: '3.1'
+version: "3.7"
+
 services:
-  mycassandra:
-    image: cassandra
-    container_name: mycassandra
+  cassandra-seed-gallery:
+    image: cassandra:latest
+    container_name: cassandra-seed-gallery
     ports:
-      - "9042:9042"
+      - 9042:9042
+    volumes:
+      - cassandra-seed-gallery:/var/lib/cassandra
+    environment:
+      CASSANDRA_CLUSTER_NAME: GalleryCluster
+      CASSANDRA_ENDPOINT_SNITCH: GossipingPropertyFileSnitch
+      CASSANDRA_DC: datacenter1
+      AUTO_BOOTSTRAP: false
+  cassandra-node-gallery-1:
+    image: cassandra:latest
+    container_name: cassandra-node-gallery-1
+    depends_on:
+      - cassandra-seed-gallery
+    volumes:
+      - cassandra-node-gallery-1:/var/lib/cassandra
+    environment:
+      CASSANDRA_SEEDS: cassandra-seed-gallery
+      CASSANDRA_CLUSTER_NAME: GalleryCluster
+      CASSANDRA_ENDPOINT_SNITCH: GossipingPropertyFileSnitch
+      CASSANDRA_DC: datacenter1
+  cassandra-node-gallery-2:
+    image: cassandra:latest
+    container_name: cassandra-node-gallery-2
+    depends_on:
+      - cassandra-seed-gallery
+    volumes:
+      - cassandra-node-gallery-2:/var/lib/cassandra
+    environment:
+      CASSANDRA_SEEDS: cassandra-seed-gallery
+      CASSANDRA_CLUSTER_NAME: GalleryCluster
+      CASSANDRA_ENDPOINT_SNITCH: GossipingPropertyFileSnitch
+      CASSANDRA_DC: datacenter2
+volumes:
+  cassandra-seed-gallery:
+  cassandra-node-gallery-1:
+  cassandra-node-gallery-2:

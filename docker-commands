@@ -3,7 +3,7 @@
 
 // 2. docker ps (to get our container's ID)
 
-// 3. docker exec -it 201954fc91b0 bash
+// 3. docker exec -it 48d1f72d85a4 bash
 
 // 4. cqlsh
 
